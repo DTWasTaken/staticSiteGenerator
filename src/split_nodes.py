@@ -79,6 +79,9 @@ def split_nodes_image(old_nodes: list[TextNode]) -> list[TextNode]:
             new_nodes.append(TextNode(image_alt, TextType.IMAGE, image_link))
             text = split[1]
 
+        if len(text) > 0:
+            new_nodes.append(TextNode(text, TextType.TEXT))
+
         # Add temp list to return list
         return_nodes.extend(new_nodes)
 
@@ -112,6 +115,9 @@ def split_nodes_link(old_nodes: list[TextNode]) -> list[TextNode]:
                 new_nodes.append(TextNode(split[0], TextType.TEXT))
             new_nodes.append(TextNode(link_text, TextType.LINK, link_url))
             text = split[1]
+
+        if len(text) > 0:
+            new_nodes.append(TextNode(text, TextType.TEXT))
 
         # Add temp list to return list
         return_nodes.extend(new_nodes)
