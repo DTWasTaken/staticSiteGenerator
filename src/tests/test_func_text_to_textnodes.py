@@ -1,6 +1,9 @@
 import unittest
-from text_to_textnodes import text_to_textnodes
-from textnode import TextNode, TextType
+
+from src.functions.text_to_textnodes import text_to_textnodes
+from src.types.text_node import TextNode
+from src.types.text_type import TextType
+
 
 class TestTextToTextnodes(unittest.TestCase):
     def test_text_to_textnodes(self):

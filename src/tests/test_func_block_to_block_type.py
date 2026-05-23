@@ -1,5 +1,8 @@
 import unittest
-from block_to_block_type import block_to_block_type, BlockType
+
+from src.functions.block_to_block_type import block_to_block_type
+from src.types.block_type import BlockType
+
 
 class TestBlockToBlockType(unittest.TestCase):
     # md.strip() because we only expext strings that come from markdown_to_blocks()
@@ -169,6 +172,7 @@ this is some more code
 """
         block_type = block_to_block_type(md.strip())
         self.assertEqual(block_type, BlockType.PARAGRAPH)
+
 
 if __name__ == "__main__":
     unittest.main()

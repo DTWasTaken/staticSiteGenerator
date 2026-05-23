@@ -1,36 +1,39 @@
 import unittest
-from text_node_to_html_node import text_node_to_html_node
-from textnode import TextNode, TextType
-from htmlnode import LeafNode
+
+from src.functions.textnode_to_htmlnode import textnode_to_htmlnode
+from src.types.text_node import TextNode
+from src.types.text_type import TextType
+from src.types.leaf_node import LeafNode
+
 
 class TestTextNodeToHTMLNode(unittest.TestCase):
     def test_text(self):
         node = TextNode("This is a text node", TextType.TEXT)
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, None)
         self.assertEqual(html_node.value, "This is a text node")
 
     def test_bold(self):
         node = TextNode("This is a bold node", TextType.BOLD)
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, "b")
         self.assertEqual(html_node.value, "This is a bold node")
 
     def test_italic(self):
         node = TextNode("This is an italic node", TextType.ITALIC)
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, "i")
         self.assertEqual(html_node.value, "This is an italic node")
 
     def test_code(self):
         node = TextNode("This is a code node", TextType.CODE)
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, "code")
         self.assertEqual(html_node.value, "This is a code node")
 
     def test_link(self):
         node = TextNode("This is a link node", TextType.LINK, "https://www.boot.dev")
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, "a")
         self.assertEqual(html_node.value, "This is a link node")
         self.assertEqual(
@@ -44,7 +47,7 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
             TextType.IMAGE,
             "/link/to/image.png"
         )
-        html_node = text_node_to_html_node(node)
+        html_node = textnode_to_htmlnode(node)
         self.assertEqual(html_node.tag, "img")
         self.assertEqual(html_node.value, "")
         self.assertEqual(
@@ -55,7 +58,7 @@ class TestTextNodeToHTMLNode(unittest.TestCase):
     def test_nonexistant_text_type(self):
         node = TextNode("This is a nonexistant node", "nonexistant")
         with self.assertRaises(ValueError) as cm:
-            text_node_to_html_node(node)
+            textnode_to_htmlnode(node)
         self.assertEqual(
             str(cm.exception),
             "nonexistant is not a valid text type"

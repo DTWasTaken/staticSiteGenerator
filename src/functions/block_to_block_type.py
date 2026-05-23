@@ -1,13 +1,5 @@
-from enum import Enum
 import re
-
-class BlockType(Enum):
-    PARAGRAPH = "paragraph"
-    HEADING = "heading"
-    CODE = "code block"
-    QUOTE = "quote"
-    UNORDERED_LIST = "unordered list"
-    ORDERED_LIST = "ordered list"
+from src.types.block_type import BlockType
 
 
 def block_to_block_type(md_block: str) -> BlockType:
