@@ -1,8 +1,8 @@
-from src.types.text_node import TextNode
-from src.types.text_type import TextType
+from src.classes.text_node import TextNode
+from src.classes.text_type import TextType
 from src.functions.split_nodes_delimiter import split_nodes_delimiter
 from src.functions.split_nodes_url import split_nodes_url
-from src.types.markdown_url_type import MarkdownURLType
+from src.classes.markdown_url_type import MarkdownURLType
 
 
 def text_to_textnodes(text: str) -> list[TextNode]:

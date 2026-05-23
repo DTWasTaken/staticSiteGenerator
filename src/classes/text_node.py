@@ -1,4 +1,4 @@
-from src.types.text_type import TextType
+from src.classes.text_type import TextType
 
 
 class TextNode:

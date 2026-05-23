@@ -1,8 +1,8 @@
 import re
 
-from src.types.text_node import TextNode
-from src.types.text_type import TextType
-from src.types.markdown_url_type import MarkdownURLType
+from src.classes.text_node import TextNode
+from src.classes.text_type import TextType
+from src.classes.markdown_url_type import MarkdownURLType
 
 
 def split_nodes_url(url_type: MarkdownURLType, old_nodes: list[TextNode]) -> list[TextNode]:
