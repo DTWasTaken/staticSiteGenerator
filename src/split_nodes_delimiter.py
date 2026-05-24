@@ -24,7 +24,7 @@ def split_nodes_delimiter(
         # Split the text by delimiter
         text_list = node.text.split(delimiter)
 
-        if len(text_list) != 3:
+        if len(text_list) % 2 == 0:
             # Node doesn't have a matching closing delimiter
             #  or had multiple more than one pair of delimiters
             #  which is unsupported
@@ -33,15 +33,14 @@ def split_nodes_delimiter(
         # temp list to hold newly created nodes
         new_nodes = []
 
-        # indexes 0 and 2 may be empty if the sting started with a delim
-        if len(text_list[0]) > 0:
-            new_nodes.append(TextNode(text_list[0], TextType.TEXT))
-
-        # index 1 should always be the string to format
-        new_nodes.append(TextNode(text_list[1], text_type))
-
-        if len(text_list[2]) > 0:
-            new_nodes.append(TextNode(text_list[2], TextType.TEXT))
+        for i in range(len(text_list)):
+            if i % 2 == 0:
+                # even indexes should be text
+                if len(text_list[i]) > 0:
+                    new_nodes.append(TextNode(text_list[i], TextType.TEXT))
+            else:
+                # odd indexes should be formatted
+                new_nodes.append(TextNode(text_list[i], text_type))
 
         # Add temp list to return list
         return_nodes.extend(new_nodes)

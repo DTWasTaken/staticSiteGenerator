@@ -34,6 +34,17 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             ]
         self.assertEqual(new_nodes, expected_nodes)
 
+    def test_multiple_instances(self):
+        node = TextNode("This is text with two **bold** **words**", TextType.TEXT)
+        new_nodes = split_nodes_delimiter([node], "**", TextType.BOLD)
+        expected_nodes = [
+            TextNode("This is text with two ", TextType.TEXT),
+            TextNode("bold", TextType.BOLD),
+            TextNode(" ", TextType.TEXT),
+            TextNode("words", TextType.BOLD),
+            ]
+        self.assertEqual(new_nodes, expected_nodes)
+
     def test_italic(self):
         node = TextNode("This is text with an _italicized_ word", TextType.TEXT)
         new_nodes = split_nodes_delimiter([node], "_", TextType.ITALIC)
