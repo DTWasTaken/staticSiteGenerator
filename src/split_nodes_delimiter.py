@@ -1,5 +1,5 @@
-from src.classes.text_type import TextType
-from src.classes.text_node import TextNode
+from text_type import TextType
+from text_node import TextNode
 
 
 def split_nodes_delimiter(

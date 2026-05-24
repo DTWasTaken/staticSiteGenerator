@@ -1,9 +1,9 @@
 import unittest
 
-from src.functions.textnode_to_htmlnode import textnode_to_htmlnode
-from src.classes.text_node import TextNode
-from src.classes.text_type import TextType
-from src.classes.leaf_node import LeafNode
+from textnode_to_htmlnode import textnode_to_htmlnode
+from text_node import TextNode
+from text_type import TextType
+from leaf_node import LeafNode
 
 
 class TestTextNodeToHTMLNode(unittest.TestCase):

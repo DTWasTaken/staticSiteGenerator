@@ -1,14 +1,14 @@
 import re
 
-from src.classes.html_node import HTMLNode
-from src.classes.parent_node import ParentNode
-from src.classes.leaf_node import LeafNode
-from src.functions.block_to_block_type import block_to_block_type
-from src.classes.block_type import BlockType
-from src.functions.text_to_textnodes import text_to_textnodes
-from src.functions.textnode_to_htmlnode import textnode_to_htmlnode
-from src.classes.text_node import TextNode
-from src.classes.text_type import TextType
+from html_node import HTMLNode
+from parent_node import ParentNode
+from leaf_node import LeafNode
+from block_to_block_type import block_to_block_type
+from block_type import BlockType
+from text_to_textnodes import text_to_textnodes
+from textnode_to_htmlnode import textnode_to_htmlnode
+from text_node import TextNode
+from text_type import TextType
 
 
 def markdown_to_html_node(markdown: str) -> ParentNode:

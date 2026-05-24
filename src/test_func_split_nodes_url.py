@@ -1,10 +1,10 @@
 import unittest
 
-from src.functions.split_nodes_url import extract_markdown_urls
-from src.functions.split_nodes_url import split_nodes_url
-from src.classes.markdown_url_type import MarkdownURLType
-from src.classes.text_node import TextNode
-from src.classes.text_type import TextType
+from split_nodes_url import extract_markdown_urls
+from split_nodes_url import split_nodes_url
+from markdown_url_type import MarkdownURLType
+from text_node import TextNode
+from text_type import TextType
 
 
 class TestExtractMarkdownImages(unittest.TestCase):

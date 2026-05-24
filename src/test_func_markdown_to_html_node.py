@@ -1,6 +1,6 @@
 import unittest
 
-from src.functions.markdown_to_html_node import markdown_to_blocks, markdown_to_html_node
+from markdown_to_html_node import markdown_to_blocks, markdown_to_html_node
 
 
 class TestMarkdownToBlocks(unittest.TestCase):
