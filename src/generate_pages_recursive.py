@@ -3,12 +3,12 @@ import os
 from generate_page import generate_page
 
 
-def generate_pages_recursive(dir_path_content: str, template_path: str, dest_dir_path: str) -> None:
+def generate_pages_recursive(dir_path_content: str, template_path: str, dest_dir_path: str, basepath: str) -> None:
     md_files = find_all_md_docs_in_tree(dir_path_content)
     for md_file in md_files:
         _, file_name = md_file.split(dir_path_content)
         destination_file = dest_dir_path + file_name[:-3] + ".html"
-        generate_page(md_file, template_path, destination_file)
+        generate_page(md_file, template_path, destination_file, basepath)
 
 def find_all_md_docs_in_tree(start_dir: str) -> list[str]:
     visited = []

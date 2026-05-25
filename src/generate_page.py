@@ -4,7 +4,7 @@ from markdown_to_html_node import markdown_to_html_node
 from extract_title import extract_title
 
 
-def generate_page(from_path: str, template_path: str, dest_path: str) -> None:
+def generate_page(from_path: str, template_path: str, dest_path: str, basepath: str) -> None:
     print(f"Generating page from {from_path} to {dest_path} using {template_path}")
 
     with open(from_path, 'r') as f:
@@ -21,7 +21,15 @@ def generate_page(from_path: str, template_path: str, dest_path: str) -> None:
 
     html_title = extract_title(markdown)
 
-    html_page = template.replace("{{ Title }}", html_title).replace("{{ Content }}", html_content)
+    html_page = template.replace(
+        "{{ Title }}", html_title
+        ).replace(
+            "{{ Content }}", html_content
+        ).replace(
+            'href="/', f'href="{basepath}'
+        ).replace(
+            'src="/', f'src="{basepath}'
+        )
 
     dest_dir_path, _ = dest_path.split("/index.html")
 
